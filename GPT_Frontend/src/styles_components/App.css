@@ -1,0 +1,17 @@
+
+.main{
+    display: flex;
+    background-color: #F7FBFF;
+    
+}
+.Categories{
+    display: flex;
+
+}
+
+.History{
+    display: flex;
+}
+.Chat{
+    display: flex;
+}

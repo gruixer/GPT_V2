@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('../assets/colors.css');
+*{
+    
+    font-family: 'Open Sans', sans-serif;
+    margin:0;
+    padding:0;
+    
+}
+
+
+.categories-container{
+    background-color: var(--light-background);
+    height: 95vh;
+    width: 244px;
+    border : solid 0.5px var(--border-color);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+
+.categories-header {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap : 20px;
+    padding-bottom: 20px;
+    border-bottom: solid 5px var(--border-color);
+    
+}
+.categories-header img{
+    width: 40px;
+    
+}
+.categories-header-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.categories-header h1 { 
+    font-size: larger;
+    font-weight: 600;
+
+}
+.categories-middle-part{
+    padding :100px; 
+    margin: 10px;
+    height: 100%;
+    
+    
+    display: flex;
+    justify-content: center; 
+
+}
+.categories-middle-part ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 25px;
+    
+    
+  }
+  .categories-middle-part li{
+    
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 15px;
+    color: var(--big-title-color);
+
+    
+  }
+  
+  .categories-middle-part img {
+    opacity: 60%;
+    width: 25px;
+    
+     
+  }
+  .categories-middle-part h2{
+    font-size: large;
+    font-weight: 600;
+    width: 120px;
+   
+  }
+ 
+  
+.categories-footer{
+    text-align: center;
+    border-top: solid 5px var(--border-color);
+    padding-top: 20px;
+}
+
+
+
+
+.categories-middle-part li:hover {
+    background-color:var(--primary-color);
+    color: var(--light-background);
+    cursor: pointer;
+}.categories-middle-part li:hover div  {
+   
+    color: var(--primary-color);
+
+}
+
+
+
+.categories-circle{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--light-background);
+    text-align: center;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--light-background);
+    
+}

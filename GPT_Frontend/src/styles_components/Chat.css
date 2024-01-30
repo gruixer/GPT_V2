@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('../assets/colors.css');
+*{
+    
+    font-family: 'Open Sans', sans-serif;
+    margin:0;
+    padding:0;
+    
+}
+
+.chat-container{
+
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: aqua;
+    
+    
+}
+.chat-header{
+padding-bottom: 30px;
+align-items: center;
+justify-content: space-between;
+display: flex;
+background-color: bisque;
+
+}
+.chat-header h1{
+font-size: 23px;
+font-weight: 600;
+color: var(--big-title-color);
+}
+.chat-header h2{
+    font-size: large;
+    font-weight: 500;
+    color: var(--small-title-color);
+    }
+
+.chat-middle-part{
+    background-color: blueviolet;
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    
+
+}
+.chat-middle-part .chatbot {
+    display: flex;
+    width: 50%;
+    justify-content: left;
+    background-color: cadetblue;
+}
+.chat-middle-part .chatbot ul {
+   
+    
+    list-style: none;
+    gap: 25px;
+}
+  .chat-middle-part .chatbot li{
+    
+    
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 15px;
+    color: var(--big-title-color);
+
+    
+  }
+  .chat-middle-part .user {
+   
+   display: flex;
+   flex-direction: column;
+   justify-content: right;
+    width: 50%;
+    
+    background-color: rgb(160, 95, 160);
+}
+.chat-middle-part .user ul {
+    
+    
+    gap: 25px;
+}
+  .chat-middle-part .user li{
+    
+    list-style: none;
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 15px;
+    color: var(--big-title-color);
+
+    
+  }
+
+  
+  .chat-middle-part img {
+    opacity: 60%;
+    width: 25px;
+    
+     
+  }
+  .chat-middle-part h2{
+    font-size: large;
+    font-weight: 600;
+    width: 120px;
+   
+  }
+ 
+.chat-input{
+    
+    justify-content: right;
+    align-items: center;
+    display: flex;
+   
+    
+}
+.chat-input input{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: var(--border-color);
+    color: var(--info-font-color);
+    padding-left: 40px;
+
+}
+
+.chat-input img{
+    padding: 10px;
+    
+    display: flex;
+    
+    position: absolute;
+    width: 20px;
+    opacity: 50%;
+    transform: rotate(180deg);
+}
