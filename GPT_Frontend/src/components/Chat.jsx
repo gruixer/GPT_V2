@@ -1,9 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles_components/Chat.css";
 
 const Chat = () => {
 
+    const[userInput ,setUserInput] = useState('');
+    const [message, setMessage] = useState("");
+    const[historyChats, setHistoryChats] =useState([]);
+    const [currentTitle, setCurrentTitle] =useState([]);
 
+
+    const getMessages = async () => {
+      const options = {
+        method: "POST",
+        body: JSON.stringify({
+          message: userInput,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+    
+      try {
+        const response = await fetch("http://localhost:8000/aichatbot", options);
+        const data = await response.json();
+        setMessage(data.choices[0].message)
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    useEffect(()=>{
+      console.log(currentTitle,userInput,message)
+    }, [message,currentTitle]);
+    
     return (
 
 
@@ -37,8 +66,8 @@ const Chat = () => {
               </div>
               <div className="chat-input">
               
-            <input type="search" placeholder="ask me anything ..."></input>
-            <img alt="search-icon" src="/media/angle-left.png"></img>
+            <input type="search" placeholder="ask me anything ..." value={userInput} onChange={(e)=>setUserInput(e.target.value)}></input>
+            <img alt="search-icon" src="/media/angle-left.png" onClick={getMessages}></img>
             
             
               </div>

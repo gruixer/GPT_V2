@@ -14,7 +14,9 @@ const History = () => {
             <div className="history-searchbar">
             <input type="search" placeholder="Search here ..."></input>
             <img alt="search-icon" src="/media/search.png"></img>
-            
+            </div>
+            <div className="history-button">
+            <button type="button">New Chat</button>
             </div>
             <div className="history-chat-history">
                 <ul>

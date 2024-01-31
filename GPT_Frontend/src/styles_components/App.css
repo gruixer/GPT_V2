@@ -2,11 +2,11 @@
 .main{
     display: flex;
     background-color: #F7FBFF;
-    
+    padding: 30px;
 }
 .Categories{
     display: flex;
-
+    
 }
 
 .History{
