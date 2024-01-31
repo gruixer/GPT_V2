@@ -40,6 +40,10 @@ try{
 
 
 });
+
+app.get('/',(req,res)=>{
+    res.send("HELLO THERE TEST TEST 123")
+})
 app.listen(PORT , () => {
     console.log(`Server is running on hhtp://localhost:${PORT}`)
 });

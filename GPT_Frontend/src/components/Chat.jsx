@@ -21,7 +21,7 @@ const Chat = () => {
       };
     
       try {
-        const response = await fetch("http://localhost:8000/aichatbot", options);
+        const response = await fetch("https://gpt-v2-6y9v.vercel.app/", options);
         const data = await response.json();
         setMessage(data.choices[0].message)
       } catch (error) {
