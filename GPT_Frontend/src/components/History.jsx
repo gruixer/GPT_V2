@@ -5,6 +5,13 @@ import "../styles_components/History.css";
 
 const History = () => {
 
+    const createNewChat = () => {
+        setMessage("")
+        setUserInput("")
+        setCurrentTitle(""
+        )
+    }
+
     return(
         <div className="history-container">
 
@@ -16,7 +23,7 @@ const History = () => {
             <img alt="search-icon" src="/media/search.png"></img>
             </div>
             <div className="history-button">
-            <button type="button">New Chat</button>
+            <button type="button" onClick={{createNewChat}}>New Chat</button>
             </div>
             <div className="history-chat-history">
                 <ul>
