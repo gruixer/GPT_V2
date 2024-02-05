@@ -1,26 +1,16 @@
-import React, {
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useState,
-} from "react";
+import React, { useEffect, useState } from "react";
 import "../styles_components/Chat.css";
 
-const Chat = forwardRef((props, ref) => {
-  const [userInput, setUserInput] = useState("");
-  const [message, setMessage] = useState("");
-  const [historyChats, setHistoryChats] = useState([]);
-  const [currentTitle, setCurrentTitle] = useState("");
-
-  useImperativeHandle(ref, () => ({
-    createNewChat() {
-      setUserInput("");
-      setMessage("");
-      setCurrentTitle("");
-      console.log("New chat created !");
-    },
-  }));
-
+const Chat = ({
+  userInput,
+  message,
+  historyChats,
+  currentTitle,
+  setCurrentTitle,
+  setHistoryChats,
+  setMessage,
+  setUserInput,
+}) => {
   const getMessages = async () => {
     const options = {
       method: "POST",
@@ -34,7 +24,10 @@ const Chat = forwardRef((props, ref) => {
 
     try {
       //"https://gpt-v2-6y9v.vercel.app/" "http://localhost:8000/aichatbot"
-      const response = await fetch("https://gpt-v2-6y9v.vercel.app/aichatbot", options);
+      const response = await fetch(
+        "https://gpt-v2-6y9v.vercel.app/aichatbot",
+        options
+      );
       const data = await response.json();
       setMessage(data.choices[0].message);
     } catch (error) {
@@ -63,34 +56,40 @@ const Chat = forwardRef((props, ref) => {
       ]);
     }
   }, [message, currentTitle]);
-  console.log(historyChats);
+
+  const currentChat = historyChats.filter(
+    (historyChat) => historyChat.title === currentTitle
+  );
 
   return (
     <div className="chat-container">
       <div className="chat-header">
-        {!currentTitle && <h1>New chat ...</h1>}
+        <h1>{!currentTitle ? "New Chat..." : currentTitle} </h1>
         <h2>29.10.2023</h2>
       </div>
       <div className="chat-middle-part">
         <div className="chatbot">
-          <ul>
-            <li>
-              <p>test </p>
-            </li>
-            <li>
-              <p> test1</p>
-            </li>
-          </ul>
+          {currentChat && currentChat.length > 0 ? (
+            <ul>
+              {currentChat.map((chatMessage, index) => (
+                <li key={index}>
+                  <h1>{chatMessage.role}</h1>
+                  <p>{chatMessage.content}</p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className="chat-middle-intro">
+              <img src="/media/black-hole.png" alt="No Messages" />
+              <h1>
+                Bonjour, je suis votre 'MyChat'. Jonathan m'a conçu pour vous
+                aider dans la vie quand vous ne savez plus réfléchir par vous
+                même...
+              </h1>
+              <h2></h2>
+            </div>
+          )}
         </div>
-
-        <ul className="user">
-          <li>
-            <p>user input 1</p>
-          </li>
-          <li>
-            <p> userinput2</p>
-          </li>
-        </ul>
       </div>
       <div className="chat-input">
         <input
@@ -107,5 +106,5 @@ const Chat = forwardRef((props, ref) => {
       </div>
     </div>
   );
-});
+};
 export default Chat;

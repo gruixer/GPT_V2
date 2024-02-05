@@ -7,8 +7,8 @@
 }
 
 .chat-container {
-  height: 82vh;
-  width: 140vh;
+  height: 83vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -36,50 +36,56 @@
 }
 
 .chat-middle-part {
+  overflow-y: auto;
   padding: 30px;
   height: 100%;
+}
+.chat-middle-intro {
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.chat-middle-intro h1 {
+  gap: 30px;
+  font-size: large;
+  color: var(--small-title-color);
+  font-weight: 400;
 }
 .chat-middle-part .chatbot {
   display: flex;
-  width: 50%;
+  flex-direction: column;
+  width: 100%;
   justify-content: left;
 }
 .chat-middle-part .chatbot ul {
+  width: 100%;
+  gap: 20px;
   list-style: none;
-  gap: 25px;
 }
 .chat-middle-part .chatbot li {
-  align-items: center;
-  gap: 10px;
   height: 40px;
-  padding: 10px;
+  padding: 20px;
   border-radius: 15px;
+  margin-bottom: 20px;
   color: var(--big-title-color);
+  background-color: var(--chat-background);
 }
-.chat-middle-part .user {
-  display: flex;
-  flex-direction: column;
-  justify-content: right;
-  width: 50%;
+.chat-middle-part .chatbot li h1 {
+  font-size: small;
+  text-transform: uppercase;
+  color: var(--info-font-color);
 }
-.chat-middle-part .user ul {
-  gap: 25px;
-}
-.chat-middle-part .user li {
-  list-style: none;
-  align-items: center;
-  gap: 10px;
-  height: 40px;
-  padding: 10px;
-  border-radius: 15px;
-  color: var(--big-title-color);
+.chat-middle-part .chatbot li p {
+  font-size: large;
+  color: var(--small-title-color);
 }
 
 .chat-middle-part img {
   opacity: 60%;
-  width: 25px;
+  width: 50px;
 }
 .chat-middle-part h2 {
   font-size: large;
@@ -118,4 +124,22 @@
 
 .chat-input:hover img {
   cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  width: 1px;
+  -webkit-box-shadow: inset 0 0 6px var(--border-color);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: var(--info-font-color);
+  -webkit-box-shadow: inset 0 0 6px var(--info-font-color);
 }

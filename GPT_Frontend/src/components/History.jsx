@@ -1,10 +1,18 @@
 import React from "react";
 import "../styles_components/History.css";
 
-const History = ({ onCreateNewChat }) => {
+const History = ({ onCreateNewChat,historyChats,setCurrentTitle,setMessage,setUserInput}) => {
   const handleCreateNewChat = () => {
     onCreateNewChat();
   };
+  const handleSelectedChat = (uniqueTitles) => {
+    setCurrentTitle(uniqueTitles)
+    setMessage('')
+    setUserInput('')
+
+  }
+  const uniqueTitles =  Array.from(new Set (historyChats.map(historyChat => historyChat.title)));
+  console.log(uniqueTitles)
 
   return (
     <div className="history-container">
@@ -22,34 +30,12 @@ const History = ({ onCreateNewChat }) => {
       </div>
       <div className="history-chat-history">
         <ul>
-          <li>
-            <div className="history-circle">1</div>
+          {uniqueTitles?.map((uniqueTitles,index) => <li key={index} onClick={() => handleSelectedChat(uniqueTitles)}>
+          <div className="history-circle">{index + 1}</div>
             <div className="history-info">
-              <h2>I have a problem with ... </h2>
+              <h2>{uniqueTitles} </h2>
               <h3>29.10.2023</h3>
-            </div>
-          </li>
-          <li>
-            <div className="history-circle">2</div>
-            <div className="history-info">
-              <h2>How to build a rocket ...</h2>
-              <h3>29.10.2023</h3>
-            </div>
-          </li>
-          <li>
-            <div className="history-circle">3</div>
-            <div className="history-info">
-              <h2>How to build a rocket ...</h2>
-              <h3>29.10.2023</h3>
-            </div>
-          </li>
-          <li>
-            <div className="history-circle">3</div>
-            <div className="history-info">
-              <h2>How to build a rocket ...</h2>
-              <h3>29.10.2023</h3>
-            </div>
-          </li>
+            </div></li>)}
         </ul>
       </div>
     </div>

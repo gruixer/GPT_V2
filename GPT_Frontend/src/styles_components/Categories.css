@@ -82,6 +82,24 @@
   padding-top: 20px;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  width: 1px;
+  -webkit-box-shadow: inset 0 0 6px var(--border-color);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: var(--info-font-color);
+  -webkit-box-shadow: inset 0 0 6px var(--info-font-color);
+}
+
 .categories-middle-part li:hover {
   background-color: var(--primary-color);
   color: var(--light-background);

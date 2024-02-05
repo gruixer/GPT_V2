@@ -1,5 +1,6 @@
 .main {
   display: flex;
+  
   background-color: #f7fbff;
   padding: 30px;
 }
@@ -7,9 +8,5 @@
   display: flex;
 }
 
-.History {
-  display: flex;
-}
-.Chat {
-  display: flex;
-}
+
+
