@@ -5,7 +5,7 @@ const Categories = () => {
   const categoriesArray = [
     { category: "Personnal", icon: "/media/user.png" },
     { category: "Work", icon: "/media/briefcase.png" },
-    { category: "Health", icon: "/media/hearts.png" }
+    { category: "Health", icon: "/media/hearts.png" },
   ];
 
   return (
@@ -15,7 +15,6 @@ const Categories = () => {
         <h1>My Chat</h1>
       </div>
       <div className="categories-middle-part">
-          
         <ul>
           {categoriesArray.map((category, index) => (
             <li key={index}>

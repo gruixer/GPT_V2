@@ -1,17 +1,15 @@
-
-.main{
-    display: flex;
-    background-color: #F7FBFF;
-    padding: 30px;
+.main {
+  display: flex;
+  background-color: #f7fbff;
+  padding: 30px;
 }
-.Categories{
-    display: flex;
-    
+.Categories {
+  display: flex;
 }
 
-.History{
-    display: flex;
+.History {
+  display: flex;
 }
-.Chat{
-    display: flex;
+.Chat {
+  display: flex;
 }

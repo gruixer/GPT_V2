@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 
 const PORT = process.env.PORT || 8000;
-const APIKEY = "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";
+const APIKEY = process.env.API_KEY;
 const APIURL = "https://api.openai.com/v1/chat/completions"
 
 const app = express();
