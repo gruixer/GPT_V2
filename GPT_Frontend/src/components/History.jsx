@@ -1,18 +1,27 @@
 import React from "react";
 import "../styles_components/History.css";
 
-const History = ({ onCreateNewChat,historyChats,setCurrentTitle,setMessage,setUserInput}) => {
+const History = ({
+  onCreateNewChat,
+  historyChats,
+  setCurrentTitle,
+  setMessage,
+  setUserInput,
+  getFormattedDate,
+  getFormattedTime
+}) => {
   const handleCreateNewChat = () => {
     onCreateNewChat();
   };
   const handleSelectedChat = (uniqueTitles) => {
-    setCurrentTitle(uniqueTitles)
-    setMessage('')
-    setUserInput('')
-
-  }
-  const uniqueTitles =  Array.from(new Set (historyChats.map(historyChat => historyChat.title)));
-  console.log(uniqueTitles)
+    setCurrentTitle(uniqueTitles);
+    setMessage("");
+    setUserInput("");
+  };
+  const uniqueTitles = Array.from(
+    new Set(historyChats.map((historyChat) => historyChat.title))
+  );
+  console.log(uniqueTitles);
 
   return (
     <div className="history-container">
@@ -30,12 +39,15 @@ const History = ({ onCreateNewChat,historyChats,setCurrentTitle,setMessage,setUs
       </div>
       <div className="history-chat-history">
         <ul>
-          {uniqueTitles?.map((uniqueTitles,index) => <li key={index} onClick={() => handleSelectedChat(uniqueTitles)}>
-          <div className="history-circle">{index + 1}</div>
-            <div className="history-info">
-              <h2>{uniqueTitles} </h2>
-              <h3>29.10.2023</h3>
-            </div></li>)}
+          {uniqueTitles?.map((uniqueTitles, index) => (
+            <li key={index} onClick={() => handleSelectedChat(uniqueTitles)}>
+              <div className="history-circle">{index + 1}</div>
+              <div className="history-info">
+                <h2>{uniqueTitles} </h2>
+                <h3>{getFormattedDate(new Date())}</h3>
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

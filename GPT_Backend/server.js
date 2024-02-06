@@ -14,7 +14,7 @@ app.use(cors());
 
 
 app.post('/aichatbot', async (req,res) => {
-
+    const { message, date } = req.body;
 const options = {
     method:"POST",
     headers: {
@@ -24,7 +24,7 @@ const options = {
 
     body: JSON.stringify({
         model : "gpt-3.5-turbo",
-        messages: [{role: "user", content: req.body.message}],
+        messages: [{role: "user", content: message,date}],
         max_tokens:100,
     })
 }
