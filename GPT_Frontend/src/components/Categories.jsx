@@ -1,13 +1,12 @@
+
 import React from "react";
 import "../styles_components/Categories.css";
 
-const Categories = () => {
-  const categoriesArray = [
-    { category: "Personnal", icon: "/media/user.png" },
-    { category: "Work", icon: "/media/briefcase.png" },
-    { category: "Health", icon: "/media/hearts.png" },
-  ];
-
+const Categories = ({ categoriesArray,setSelectedCategory}) => {
+  
+const handleSelectedCategory = (category) =>{
+      setSelectedCategory(category);
+}
   return (
     <div className="categories-container">
       <div className="categories-header">
@@ -17,9 +16,9 @@ const Categories = () => {
       <div className="categories-middle-part">
         <ul>
           {categoriesArray.map((category, index) => (
-            <li key={index}>
-              <img alt={category.category} src={category.icon} />
-              <h2>{category.category}</h2>
+            <li key={index} onClick={()=>handleSelectedCategory(category)}>
+              <img alt={category.name} src={category.icon} />
+              <h2>{category.name}</h2>
               <div className="categories-circle">11</div>
             </li>
           ))}

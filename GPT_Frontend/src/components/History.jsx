@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect}from "react";
 import "../styles_components/History.css";
 
 const History = ({
@@ -8,7 +8,10 @@ const History = ({
   setMessage,
   setUserInput,
   getFormattedDate,
-  getFormattedTime
+  getFormattedTime,
+  categoriesArray,
+  setCategoriesArray,
+  selectedCategory
 }) => {
   const handleCreateNewChat = () => {
     onCreateNewChat();
@@ -21,8 +24,8 @@ const History = ({
   const uniqueTitles = Array.from(
     new Set(historyChats.map((historyChat) => historyChat.title))
   );
-  console.log(uniqueTitles);
 
+  
   return (
     <div className="history-container">
       <div className="history-header">

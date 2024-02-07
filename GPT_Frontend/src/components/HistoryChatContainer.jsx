@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+
+import React, { useState,useEffect } from "react";
 import History from "./History";
 import Chat from "./Chat";
 import "../styles_components/HistoryChatContainer.css";
 
-const HistoryChatContainer = () => {
+const HistoryChatContainer = ({ categoriesArray, selectedCategory,setCategoriesArray }) => {
   const [userInput, setUserInput] = useState("");
   const [message, setMessage] = useState("");
   const [historyChats, setHistoryChats] = useState([]);
   const [currentTitle, setCurrentTitle] = useState("");
   
-  
+  console.log(historyChats)
+
   const getFormattedDate = (date) => {
     const options = {
       day: "2-digit",
@@ -28,6 +30,10 @@ const HistoryChatContainer = () => {
     return new Date(date).toLocaleTimeString(undefined, options);
   };
 
+  const onHistoryCreateNewChat = () => {
+    createNewChat();
+  };
+
   const createNewChat = () => {
     setUserInput("");
     setMessage("");
@@ -35,24 +41,21 @@ const HistoryChatContainer = () => {
     console.log("New chat created !");
   };
 
-  const onHistoryCreatNewChat = () => {
-    createNewChat();
-  };
-
-
-
   return (
     <div className="history-chat-container-main">
       <History
-        onCreateNewChat={onHistoryCreatNewChat}
+        onCreateNewChat={onHistoryCreateNewChat}
         historyChats={historyChats}
         setCurrentTitle={setCurrentTitle}
         setMessage={setMessage}
         setUserInput={setUserInput}
         getFormattedDate={getFormattedDate}
         getFormattedTime={getFormattedTime}
-       
-      ></History>
+        categoriesArray={categoriesArray}
+        setCategoriesArray={setCategoriesArray}
+        selectedCategory={selectedCategory}
+        
+      />
       <Chat
         userInput={userInput}
         message={message}
@@ -64,8 +67,8 @@ const HistoryChatContainer = () => {
         setMessage={setMessage}
         getFormattedDate={getFormattedDate}
         getFormattedTime={getFormattedTime}
-        
-      ></Chat>
+      
+      />
     </div>
   );
 };

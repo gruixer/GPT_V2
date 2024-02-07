@@ -11,18 +11,17 @@ const Chat = ({
   setMessage,
   setUserInput,
   getFormattedDate,
-  getFormattedTime
+  getFormattedTime,
+  selectedCategory,
+  categoriesArray,
+  setCategoriesArray
 }) => {
 
-
   const getMessages = async () => {
-
-    const currentDate = new Date();
     const options = {
       method: "POST",
       body: JSON.stringify({
         message: userInput,
-        date: currentDate.toISOString()
       }),
       headers: {
         "Content-Type": "application/json",
@@ -36,8 +35,8 @@ const Chat = ({
         options
       );
       const data = await response.json();
+      console.log(data);
       setMessage(data.choices[0].message);
-      
     } catch (error) {
       console.error(error);
     }
@@ -61,14 +60,12 @@ const Chat = ({
           content: userInput,
           date: getFormattedDate(new Date()),
           time: getFormattedTime(new Date()),
-          
-          
         },
         {
           title: currentTitle,
           role: message.role,
           content: message.content,
-          date: getFormattedDate(new Date()), 
+          date: getFormattedDate(new Date()),
           time: getFormattedTime(new Date()),
         },
       ]);
@@ -100,7 +97,6 @@ const Chat = ({
                     <div className="chat-middle-part-role">
                       <img src="/media/black-hole.png" alt="chatbot" />
                       <p>{chatMessage.time}</p>
-                      
                     </div>
                   )}
                   <p>{chatMessage.content}</p>

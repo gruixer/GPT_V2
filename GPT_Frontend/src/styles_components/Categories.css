@@ -108,6 +108,11 @@
 .categories-middle-part li:hover div {
   color: var(--primary-color);
 }
+.categories-middle-part li::selection{
+  background-color: var(--primary-color);
+  color: var(--light-background);
+  
+}
 
 .categories-circle {
   width: 40px;

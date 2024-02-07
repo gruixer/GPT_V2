@@ -158,4 +158,5 @@
 }
 .history-button:active button {
   background-color: var(--primary-color);
+  transform: scale(0.97)
 }
